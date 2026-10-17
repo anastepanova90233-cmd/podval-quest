@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ПОДВАЛ · Голос из-под пола</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layer">
+
+  <div class="topbar">
+    <a href="index.html">Назад</a>
+    <div class="topbar__title">Голос из-под пола</div>
+    <div class="inventory">
+      <span class="inventory__label">Ключи</span>
+      <div class="key" data-key="0">?</div>
+      <div class="key" data-key="1">?</div>
+      <div class="key" data-key="2">?</div>
+      <div class="key" data-key="3">?</div>
+      <div class="key" data-key="4">?</div>
+    </div>
+  </div>
+
+  <div class="progress">
+    <span>Путь</span>
+    <div class="progress__bar"><div class="progress__fill" id="progressFill"></div></div>
+    <span id="progressText">0 / 5</span>
+  </div>
+
+  <section class="scene" id="scene">
+    <div class="scene__chapter">Пролог</div>
+    <h1>Ты остался<br/>после уроков</h1>
+    <div class="scene__text">
+      <p>
+        Коридор пуст. За окнами — синие сумерки. Ты задержался в библиотеке,
+        и когда поднял голову от книги, понял: <em>в школе никого не осталось</em>.
+      </p>
+      <p>
+        Свет мигнул. Двери захлопнулись одна за другой — далеко, на первом этаже.
+        А из-под пола, из старого подвала, куда давно никого не пускают,
+        поднялся <em>тихий голос</em>.
+      </p>
+      <p>
+        «Ты слышишь меня. Значит, ты ещё не потерян. Спускайся.
+        Я задам тебе пять вопросов. Ответишь — выйдешь. Не ответишь — останешься здесь.»
+      </p>
+    </div>
+    <div class="scene__cta">
+      <button class="btn" id="startBtn">Спуститься в подвал</button>
+    </div>
+  </section>
+
+  <div class="wrap" id="quest" style="display:none;">
+
+    <section class="chapter" data-room="0">
+      <div class="chapter__head">
+        <span class="chapter__num">Глава I</span>
+        <h2>Дверь с уравнением</h2>
+      </div>
+      <div class="story">
+        <p>
+          Ты спускаешься по скрипучей лестнице. Стены холодные и влажные,
+          под ногами — пыль. Фонарик телефона выхватывает тяжёлую железную дверь,
+          всю в царапинах. Сбоку кривым почерком кто-то нацарапал уравнение.
+        </p>
+        <p>
+          Ты читаешь: <em>2x + 7 = 19</em>. Ниже — приписка: «Найди x — и дверь откроется».
+        </p>
+      </div>
+      <div class="voice">
+        «Первую загадку оставил ученик, который когда-то сидел здесь, как ты.
+        Он был внимательным, но не успел. <em>Реши уравнение и назови x.</em>»
+      </div>
+      <div class="task">
+        <p><strong>Задача.</strong> Реши уравнение <code>2x + 7 = 19</code>. Чему равен x?</p>
+        <p class="muted">Ответ — целое число.</p>
+      </div>
+      <div class="answer-row">
+        <input type="text" id="ans1" placeholder="Введи число..." autocomplete="off" />
+        <button class="btn" data-check="0">Ответить</button>
+      </div>
+      <div class="feedback" data-feedback="0"></div>
+      <div class="chapter-end" data-end="0">
+        <p><strong>Дверь со скрипом отворилась.</strong> За ней — узкий коридор, освещённый одной лампочкой. В руке у тебя ключ — <em>буква «Ч»</em>.</p>
+      </div>
+    </section>
+
+    <section class="chapter locked" data-room="1">
+      <div class="chapter__head">
+        <span class="chapter__num">Глава II</span>
+        <h2>Комната процентов</h2>
+      </div>
+      <div class="story">
+        <p>
+          Коридор выводит в комнату, похожую на старый магазин. На прилавке —
+          пожелтевший ценник и тетрадь с записями.
+        </p>
+        <p class="muted">
+          «Куртка стоила 4000 руб. В конце сезона объявили скидку 25%. Сколько
+          теперь стоит куртка?»
+        </p>
+      </div>
+      <div class="voice">
+        «Ученик, сидевший здесь до тебя, не смог посчитать скидку. Ответь за него —
+        и я пропущу тебя дальше.»
+      </div>
+      <div class="task">
+        <p><strong>Задача.</strong> Куртка стоила 4000 руб. Скидка 25%. Сколько рублей стоит куртка теперь?</p>
+        <p class="muted">Ответ — целое число.</p>
+      </div>
+      <div class="answer-row">
+        <input type="text" id="ans2" placeholder="Сколько рублей?" autocomplete="off" />
+        <button class="btn" data-check="1">Ответить</button>
+      </div>
+      <div class="feedback" data-feedback="1"></div>
+      <div class="chapter-end" data-end="1">
+        <p><strong>Верно.</strong> Голос одобрительно замолкает, потом произносит: «Второй ключ твой — <em>«И»</em>». Перед тобой открывается узкая дверь в архив.</p>
+      </div>
+    </section>
+
+    <section class="chapter locked" data-room="2">
+      <div class="chapter__head">
+        <span class="chapter__num">Глава III</span>
+        <h2>Архив геометрии</h2>
+      </div>
+      <div class="story">
+        <p>
+          Полки уходят вверх, во тьму. Здесь хранятся тетради, дневники, чертежи —
+          всё, что оставили ученики, которые когда-то тоже спускались сюда.
+          На одной из полок лежит раскрытый чертёж.
+        </p>
+        <p class="muted">
+          Прямоугольный треугольник. Катеты — 6 и 8. Требуется найти гипотенузу.
+        </p>
+      </div>
+      <div class="voice">
+        «Это знание проходят все, но помнят единицы. Назови гипотенузу — и архив откроет третий ключ.»
+      </div>
+      <div class="task">
+        <p><strong>Задача.</strong> В прямоугольном треугольнике катеты равны <code>6</code> и <code>8</code>. Чему равна гипотенуза?</p>
+        <p class="muted">Ответ — целое число.</p>
+      </div>
+      <div class="answer-row">
+        <input type="text" id="ans3" placeholder="Чему равна гипотенуза?" autocomplete="off" />
+        <button class="btn" data-check="2">Ответить</button>
+      </div>
+      <div class="feedback" data-feedback="2"></div>
+      <div class="chapter-end" data-end="2">
+        <p><strong>Полка медленно отъехала в сторону.</strong> За ней — тёмный проход. Голос произносит: «<em>«С»</em> — твой третий ключ».</p>
+      </div>
+    </section>
+
+    <section class="chapter locked" data-room="3">
+      <div class="chapter__head">
+        <span class="chapter__num">Глава IV</span>
+        <h2>Комната неизвестного</h2>
+      </div>
+      <div class="story">
+        <p>
+          Проход выводит в узкую комнату. На стене — старая классная доска,
+          вся в формулах. Мелом кто-то написал одну формулу и обвёл её трижды:
+          <em>S = v · t</em>.
+        </p>
+        <p class="muted">
+          Ниже — условие: «Поезд идёт со скоростью 60 км/ч и проходит 180 км.
+          Сколько часов он едет?»
+        </p>
+      </div>
+      <div class="voice">
+        «Ученик, сидевший здесь, знал формулу, но не понял, что искать.
+        <em>Сколько часов идёт поезд?</em>»
+      </div>
+      <div class="task">
+        <p><strong>Задача.</strong> Поезд идёт со скоростью 60 км/ч и проходит 180 км. Сколько часов он в пути?</p>
+        <p class="muted">Ответ — целое число.</p>
+      </div>
+      <div class="answer-row">
+        <input type="text" id="ans4" placeholder="Сколько часов?" autocomplete="off" />
+        <button class="btn" data-check="3">Ответить</button>
+      </div>
+      <div class="feedback" data-feedback="3"></div>
+      <div class="chapter-end" data-end="3">
+        <p><strong>Лампочка над дверью мигнула и загорелась ровным светом.</strong> Голос: «Ты понимаешь больше, чем он. <em>«Л»</em> — четвёртый ключ твой».</p>
+      </div>
+    </section>
+
+    <section class="chapter locked" data-room="4">
+      <div class="chapter__head">
+        <span class="chapter__num">Глава V</span>
+        <h2>Последнее уравнение</h2>
+      </div>
+      <div class="story">
+        <p>
+          Ты выходишь в круглый зал. В центре — каменный постамент,
+          на котором выгравировано: <em>x^2 = 81</em>. От постамента идёт слабое гудение.
+        </p>
+        <p>
+          Это последняя комната. Последний ключ. Последний вопрос Хранителя.
+        </p>
+      </div>
+      <div class="voice">
+        «Ты почти у цели. Осталась одна буква — и дверь откроется.
+        Назови <em>положительный корень уравнения x^2 = 81</em>.»
+      </div>
+      <div class="task">
+        <p><strong>Задача.</strong> Найди положительный корень уравнения <code>x^2 = 81</code>.</p>
+        <p class="muted">Ответ — целое число.</p>
+      </div>
+      <div class="answer-row">
+        <input type="text" id="ans5" placeholder="Чему равен x?" autocomplete="off" />
+        <button class="btn" data-check="4">Ответить</button>
+      </div>
+      <div class="feedback" data-feedback="4"></div>
+      <div class="chapter-end" data-end="4">
+        <p><strong>Постамент вспыхнул белым.</strong> Голос в последний раз произносит: «<em>«О»</em> — твой последний ключ. Сложи их все — и назови пароль».</p>
+      </div>
+    </section>
+
+    <section class="final" id="final">
+      <div class="final__chapter">Эпилог</div>
+      <h2>Дверь открылась</h2>
+      <p>
+        Голос в последний раз произносит: «Пять букв сложились в одно слово.
+        Ты понял его сам. <em>ЧИСЛО</em>.»
+      </p>
+      <p>
+        Замки щёлкают один за другим. Дверь медленно отходит, и в лицо тебе
+        бьёт холодный утренний воздух. Ты выходишь на школьное крыльцо.
+        Небо — серо-розовое, где-то кричит первая птица.
+      </p>
+      <p>
+        Ты оборачиваешься. За спиной — обычная дверь в подвал.
+        Замок на ней свежий, будто его только что поставили. На косяке, едва заметно,
+        процарапано: <em>«Ты был внимателен. Возвращайся, если снова забудешь»</em>.
+      </p>
+      <p class="muted">Голос больше не отвечает. Но ты знаешь: он никуда не ушёл.</p>
+
+      <div class="code-big" id="finalCode">- - - - -</div>
+
+      <p>
+        <a href="index.html" class="final-back">Вернуться на главную</a>
+      </p>
+    </section>
+
+    <div class="reset-wrap">
+      <button class="btn btn--ghost" id="resetBtn">Пройти заново</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- БОЛЬШАЯ ВСПЛЫВАЮЩАЯ ПЛАШКА С ПРОМОКОДОМ -->
+<div class="promo-popup" id="promoPopup">
+  <div class="promo-popup__card">
+    <button class="promo-popup__close" id="promoClose" aria-label="Закрыть">x</button>
+    <div class="promo-popup__label">Награда за прохождение</div>
+    <h3 class="promo-popup__title">Ты прошёл квест</h3>
+    <p class="promo-popup__text">
+      Все пять комнат позади. За это — <strong>скидка 10%</strong> на офлайн-квест
+      в Новосибирске, Чемской.
+    </p>
+    <div class="promo-popup__code" id="promoCode">CHISLO10</div>
+    <button class="btn btn--primary promo-popup__btn" id="copyPromoBtn">Скопировать промокод</button>
+    <div class="promo-popup__status" id="copyStatus"></div>
+    <p class="promo-popup__hint">
+      Введи промокод в форме записи на главной странице — скидка применится автоматически.
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
